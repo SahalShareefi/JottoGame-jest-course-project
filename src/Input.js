@@ -4,16 +4,43 @@ import { connect } from 'react-redux';
 class Input extends Component {
 	render(){
 
-		const contents = this.props.success ? null : ( 
-
-				<form className="form-inline">
-					<input className="mb-2 mx-sm-3"
-						data-test="input-box"
+/*
+const contents = (props) => {
+	if(this.props.success){
+	return
+		null
+  } else{
+  	return(
+  		<form className="form-inline">
+					<input data-test="input-box"
+						className="mb-2 mx-sm-3"
 						type="text"
 						placeholder="enter guess" />
 
-					<button className="btn btn-primary mb-2"
-						data-test="submit-button"
+					<button data-test="submit-button"
+						className="btn btn-primary mb-2"
+						type="submit">	
+						Submit
+					</button>	
+				</form>
+  	)
+  }
+}*/
+
+// this if/else statements did not work fine !!  
+
+  		const contents = this.props.success 
+		? null 
+		: ( 
+
+				<form className="form-inline">
+					<input data-test="input-box"
+						className="mb-2 mx-sm-3"
+						type="text"
+						placeholder="enter guess" />
+
+					<button data-test="submit-button"
+						className="btn btn-primary mb-2"
 						type="submit">	
 						Submit
 					</button>	
@@ -22,14 +49,14 @@ class Input extends Component {
 
 		return(
 			<div data-test="component-input">
-				{ contents }
+				{contents}
 			</div>
 		) 
 	}
 }
 
-const mapStateToProps = ({success}) => {
+  const mapStateToProps = ({ success }) => {
 	return { success };
 }
  	 	 	
-export default connect(mapStateToProps)(Input); 	
+export default connect(mapStateToProps)(Input); 
